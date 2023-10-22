@@ -6,6 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.springframework.jdbc.core.JdbcTemplate;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 public class JdbcSleepScheduleDaoTests  extends BaseDaoTests{
@@ -26,6 +27,14 @@ public class JdbcSleepScheduleDaoTests  extends BaseDaoTests{
     @Test
     public void getSleepScheduleByIdIsntNull(){
         SleepSchedule result = sut.getSleepScheduleById(1);
+        Assert.assertNotNull(result);
+    }
+    @Test
+    public void createSleepScheduleIsntNull(){
+        Timestamp sleepTime = Timestamp.valueOf("2030-10-19 22:00:00");
+        Timestamp wakeTime = Timestamp.valueOf("2024-10-20 09:00:00");
+        SleepSchedule result = sut.createSleepTimes(new SleepSchedule(20,sleepTime,wakeTime));
+        
         Assert.assertNotNull(result);
     }
 }

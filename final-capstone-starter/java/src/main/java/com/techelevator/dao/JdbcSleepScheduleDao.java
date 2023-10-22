@@ -47,4 +47,13 @@ public class JdbcSleepScheduleDao implements SleepScheduleDao{
             return null;
         }
     }
+
+    @Override
+    public SleepSchedule createSleepTimes(SleepSchedule sleepSchedule) {
+        String sql = "INSERT INTO sleep_schedule (sleep_time, wake_time) VALUES (?,?) RETURNING id";
+//                "('2023-10-19 22:00:00', '2023-10-20 06:00:00')" example values for reference
+         int id = jdbcTemplate.queryForObject(sql,int.class, sleepSchedule.getSleepTime(),sleepSchedule.getWakeTime());
+        sleepSchedule.setId(id);
+        return sleepSchedule;
+    }
 }

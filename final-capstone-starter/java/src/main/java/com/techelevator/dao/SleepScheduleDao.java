@@ -7,6 +7,6 @@ import java.util.List;
 public interface SleepScheduleDao {
     public List<SleepSchedule> getSleepSchedules();
     public SleepSchedule getSleepScheduleById(int id);
-    public SleepSchedule postSleepSchedule(SleepSchedule)
+    public SleepSchedule createSleepTimes(SleepSchedule sleepSchedule);
 }
 
