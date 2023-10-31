@@ -1,29 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import api from './api';
 import UpdateSchedule from './UpdateSchedule';
 import AddSchedule from './AddSchedule';
 import GetAllSchedules from './GetAllSchedules'
 import GetScheduleById from './GetScheduleById';
 
 function App() {
-  const [data, setData] = useState([]);
-  // const [sleepId, setSleepId] = useState('');
-  
-
-  // Fetch data from the backend when the component mounts
-  // useEffect(() => {
-  //   api.getSchedule()
-  //     .then(response => {
-  //       console.log("reached response")
-  //       console.log(response)
-  //       setData(response.data);
-  //     })
-  //     .catch(error => {
-  //       console.error("Error fetching data:", error);
-  //     });
-  // },
-  //  []);
+  //Functional components with hooks(seen below) 
+  //apparently this is the more 'modern' way to manage state 
+  //we should change our projects over at some point 
+  // const [sleepId, setSleepId] = useState(''); // 
   
   return ( //note it returns only ONE element(similar to template in vue)
     <div className="App">
@@ -31,8 +17,8 @@ function App() {
       <GetScheduleById />
       <AddSchedule/>
       <br></br>
-        <GetAllSchedules />
-      < UpdateSchedule />
+      <GetAllSchedules />
+      <UpdateSchedule />
     </div>
   );
 }
