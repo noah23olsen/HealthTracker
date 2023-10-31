@@ -4,6 +4,7 @@ import api from './api';
 import UpdateSchedule from './UpdateSchedule';
 import AddSchedule from './AddSchedule';
 import GetAllSchedules from './GetAllSchedules'
+import GetScheduleById from './GetScheduleById';
 
 function App() {
   const [data, setData] = useState([]);
@@ -27,6 +28,7 @@ function App() {
   return ( //note it returns only ONE element(similar to template in vue)
     <div className="App">
       <h1>Sleep Schedule</h1>
+      <GetScheduleById />
       <AddSchedule/>
       <br></br>
         <GetAllSchedules />

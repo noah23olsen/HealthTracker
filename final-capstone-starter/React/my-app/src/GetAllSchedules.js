@@ -21,6 +21,7 @@ class GetAllSchedules extends Component {
   render() {
     return (
       <div>
+        <h2 >Get All Schedules</h2>
           <ul>
           {/* .map creates a new array by applying a function to it(vs a foreach uses the original array) */}
           {this.state.data.map((item,index)=>(

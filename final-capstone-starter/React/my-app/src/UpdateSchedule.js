@@ -37,7 +37,7 @@ class UpdateSchedule extends Component {
   render() {
     return (
       <div>
-          {/* update */}
+        <h2>Update Schedule</h2>
       <form onSubmit={this.handleSubmit2}>
         <div>
           <label>Update Sleep Time:</label>

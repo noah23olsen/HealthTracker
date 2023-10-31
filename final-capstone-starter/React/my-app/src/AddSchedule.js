@@ -32,7 +32,7 @@ handleAddSchedule = (scheduleData) => {
   render() {
     return (
       <div>
-         
+         <h2>Add Schedule</h2>
       <form onSubmit={this.handleSubmit}>
         <div>
           <label>Sleep Time:</label>
