@@ -64,4 +64,13 @@ public class JdbcSleepScheduleDao implements SleepScheduleDao{
                 "WHERE id = ?;";
         jdbcTemplate.update(sql,sleepSchedule.getSleepTime(),sleepSchedule.getWakeTime(),sleepSchedule.getId());
     }
+
+    @Override
+    public void deleteSleepTimeById(int id) {
+        String sql =
+                "DELETE FROM sleep_schedule\n" +
+                "WHERE ID = ?\n";
+        jdbcTemplate.update(sql,id);
+    }
+
 }

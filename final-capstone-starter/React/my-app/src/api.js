@@ -7,18 +7,22 @@ const getSchedule = () => {
     return axios.get('http://localhost:9000/schedule');
 }
 const getScheduleById=(id) => {
-    return axios.get(`http://localhost:9000/schedule/${id}`)
+    return axios.get(`http://localhost:9000/schedule/${id}`);
 }
 const updateSchedule = (schedule) => {
     return axios.put('http://localhost:9000/schedule/update', schedule);
+}
+const deleteScheduleById = (id) => {
+    return axios.delete(`http://localhost:9000/schedule/delete/${id}`);
 }
 
 //remember to add each new method here
 const api = {
     postSchedule,
     getSchedule,
+    getScheduleById,
     updateSchedule,
-    getScheduleById
+    deleteScheduleById,
 }
 
 export default api;

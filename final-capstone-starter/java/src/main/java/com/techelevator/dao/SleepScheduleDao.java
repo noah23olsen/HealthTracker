@@ -9,5 +9,6 @@ public interface SleepScheduleDao {
     public SleepSchedule getSleepScheduleById(int id);
     public SleepSchedule createSleepTimes(SleepSchedule sleepSchedule);
     public void updateSleepTimeById(SleepSchedule sleepSchedule);
+    public void deleteSleepTimeById(int id);
 }
 

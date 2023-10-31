@@ -39,4 +39,9 @@ public class HealthController {
     public void updateSleepTimeById(@RequestBody SleepSchedule sleepSchedule){
         sleepScheduleDao.updateSleepTimeById(sleepSchedule);
     }
+    @DeleteMapping(path="schedule/delete/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteSleepTimeById(@PathVariable int id){
+        sleepScheduleDao.deleteSleepTimeById(id);
+    }
 }
