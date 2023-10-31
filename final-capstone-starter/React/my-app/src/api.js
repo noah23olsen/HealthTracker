@@ -6,10 +6,14 @@ const postSchedule = (scheduleData) => {
 const getSchedule = () => {
     return axios.get('http://localhost:9000/schedule');
 }
+const updateSchedule = (schedule) => {
+    return axios.put('http://localhost:9000/schedule/update', schedule);
+}
 
 const api = {
     postSchedule,
-    getSchedule
+    getSchedule,
+    updateSchedule
 }
 
 export default api;

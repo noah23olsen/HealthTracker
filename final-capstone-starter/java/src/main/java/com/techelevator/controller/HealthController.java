@@ -34,4 +34,9 @@ public class HealthController {
         System.out.println("Received wakeTime: " + sleepSchedule.getWakeTime());
         return sleepScheduleDao.createSleepTimes(sleepSchedule);
     }
+    @PutMapping(path="schedule/update")
+    @ResponseStatus(HttpStatus.NO_CONTENT) //indicating success, common for updates with no data to send back
+    public void updateSleepTimeById(@RequestBody SleepSchedule sleepSchedule){
+        sleepScheduleDao.updateSleepTimeById(sleepSchedule);
+    }
 }

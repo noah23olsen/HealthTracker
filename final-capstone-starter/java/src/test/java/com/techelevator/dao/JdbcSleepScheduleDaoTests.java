@@ -37,4 +37,10 @@ public class JdbcSleepScheduleDaoTests  extends BaseDaoTests{
         
         Assert.assertNotNull(result);
     }
+    @Test
+    public void updateSleepSchedule(){
+        Timestamp sleepTime = Timestamp.valueOf("2030-10-19 22:00:00");
+        Timestamp wakeTime = Timestamp.valueOf("2024-10-20 09:00:00");
+        sut.updateSleepTimeById(new SleepSchedule(1,sleepTime,wakeTime));
+    }
 }

@@ -56,4 +56,12 @@ public class JdbcSleepScheduleDao implements SleepScheduleDao{
         sleepSchedule.setId(id);
         return sleepSchedule;
     }
+
+    @Override
+    public void updateSleepTimeById(SleepSchedule sleepSchedule) {
+        String sql = "UPDATE sleep_schedule\n" +
+                "SET sleep_time = ?, wake_time = ?\n" +
+                "WHERE id = ?;";
+        jdbcTemplate.update(sql,sleepSchedule.getSleepTime(),sleepSchedule.getWakeTime(),sleepSchedule.getId());
+    }
 }

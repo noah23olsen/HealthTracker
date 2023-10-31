@@ -8,5 +8,6 @@ public interface SleepScheduleDao {
     public List<SleepSchedule> getSleepSchedules();
     public SleepSchedule getSleepScheduleById(int id);
     public SleepSchedule createSleepTimes(SleepSchedule sleepSchedule);
+    public void updateSleepTimeById(SleepSchedule sleepSchedule);
 }
 
