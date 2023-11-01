@@ -13,16 +13,22 @@ class AddSchedule extends Component {
     };
   }
 
-  handleSleepTimeChange = (date) => {
-    this.setState({ sleepTime: date });
-  };
+  // handleSleepTimeChange = (date) => {
+  //   this.setState({ sleepTime: date });
+  // };
 
-  handleWakeTimeChange = (time) => {
-    this.setState({ wakeTime: time });
-  }
+ 
   
 handleAddSchedule = (scheduleData) => {
-    api.postSchedule(scheduleData)
+  
+  const formattedSchedule = {
+    ...scheduleData, //make a copy of schedule data that we can manipulate further
+    //basically the DatePicker library formats time differently than my backend, so we need to format it
+    sleep_time: scheduleData.sleep_time.toISOString().slice(0,19).replace('T',' '),
+    wake_time: scheduleData.wake_time.toISOString().slice(0, 19).replace('T', ' '),
+  }
+  console.log(formattedSchedule);
+    api.postSchedule(formattedSchedule)
    .then(response=>{
      console.log(response)
    })
@@ -48,33 +54,33 @@ handleAddSchedule = (scheduleData) => {
       <form onSubmit={this.handleSubmit}>
         <div>
           <label>Sleep Time:</label>
-          <input
+          {/* <input
             type="text"
             value={this.state.sleepTime}
             onChange={(e) => this.setState({sleepTime : e.target.value})}
-            />
-          {/* <DatePicker
+            /> */}
+          <DatePicker
               selected={this.state.sleepTime}
-              onChange={this.handleSleepTimeChange}
+              onChange={(date) => this.setState({sleepTime : date })}
               showTimeSelect
               timeIntervals={15}
               dateFormat="yyyy-MM-dd HH:mm:ss"
-            /> */}
+            />
         </div>
         <div>
           <label>Wake Time:</label>
-          <input
+          {/* <input
             type="text"
             value={this.wakeTime}
             onChange={(e) => this.setState({wakeTime : e.target.value})}
-            />
-          {/* <DatePicker
+            /> */}
+          <DatePicker
               selected={this.state.wakeTime}
-              onChange={this.handleSleepTimeChange}
+              onChange={(date) => this.setState({wakeTime : date})}
               showTimeSelect
               timeIntervals={15}
               dateFormat="yyyy-MM-dd HH:mm:ss"
-            /> */}
+            />
         </div>
         <button type="submit">Submit</button>
       </form> 
