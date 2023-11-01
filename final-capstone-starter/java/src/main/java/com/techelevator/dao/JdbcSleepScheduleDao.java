@@ -27,6 +27,7 @@ public class JdbcSleepScheduleDao implements SleepScheduleDao{
                 SleepSchedule sleepSchedule = new SleepSchedule();
                 sleepSchedule.setSleepTime(rows.getTimestamp("sleep_time"));
                 sleepSchedule.setWakeTime(rows.getTimestamp("wake_time"));
+                sleepSchedule.setId(rows.getInt("id"));
 
                 sleepScheduleList.add(sleepSchedule);
             }

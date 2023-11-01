@@ -26,6 +26,7 @@ class GetAllSchedules extends Component {
           {/* .map creates a new array by applying a function to it(vs a foreach uses the original array) */}
           {this.state.data.map((item,index)=>(
             <li key={index}>
+              ID: {item.id} - 
               Sleep Time: {item.sleep_time} - 
               Wake Time: {item.wake_time}
             </li>
