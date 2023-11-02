@@ -5,7 +5,8 @@ class GetScheduleById extends Component {
   constructor(props) {
     super(props);
     this.state = {
-        id:''
+        id:'',
+        item:''
     };
   }
  handleGetById = (id, event) => {
@@ -14,6 +15,8 @@ class GetScheduleById extends Component {
     api.getScheduleById(id)
     .then(response =>{
         console.log(response)
+        this.setState({item: response.data})
+
     })
     .catch(error => {
         console.error(error)
@@ -33,6 +36,9 @@ class GetScheduleById extends Component {
                 >
             </input>
             <button type="submit">Submit</button>
+            {this.state.item !== '' && (
+           <p>ID: {this.state.item.id} | Sleep Time: {this.state.item.sleep_time} |Wake Time: {this.state.item.wake_time} |</p>
+            )}
         </form>
       </div>
     );

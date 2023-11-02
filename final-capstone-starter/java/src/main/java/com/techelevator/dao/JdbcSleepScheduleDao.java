@@ -35,13 +35,14 @@ public class JdbcSleepScheduleDao implements SleepScheduleDao{
         }
     @Override
     public SleepSchedule getSleepScheduleById(int id) {
-        String sql = "SELECT sleep_time, wake_time FROM sleep_schedule WHERE id = ?";
+        String sql = "SELECT sleep_time, wake_time, id FROM sleep_schedule WHERE id = ?";
         try {
             SqlRowSet row  = jdbcTemplate.queryForRowSet(sql, id);
             SleepSchedule sleepSchedule = new SleepSchedule();
             if (row.next()) {
                 sleepSchedule.setSleepTime(row.getTimestamp("sleep_time"));
                 sleepSchedule.setWakeTime(row.getTimestamp("wake_time"));
+                sleepSchedule.setId(row.getInt("id"));
             }
             return sleepSchedule;
         } catch (EmptyResultDataAccessException e) {
