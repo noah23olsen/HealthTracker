@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import api from './api';
 import DatePicker from 'react-datepicker';
 // import 'react-datepicker/dist/react-datepicker.css';
-// import TimePicker from 'react-time-picker';
 
 class AddSchedule extends Component {
   constructor(props) {
@@ -12,13 +11,6 @@ class AddSchedule extends Component {
       wakeTime: '', // You can initialize with the desired default time
     };
   }
-
-  // handleSleepTimeChange = (date) => {
-  //   this.setState({ sleepTime: date });
-  // };
-
- 
-  
 handleAddSchedule = (scheduleData) => {
   
   const formattedSchedule = {
@@ -54,6 +46,7 @@ handleAddSchedule = (scheduleData) => {
       <form onSubmit={this.handleSubmit}>
         <div>
           <label>Sleep Time:</label>
+          {/* //for future reference, delete later//} */}
           {/* <input
             type="text"
             value={this.state.sleepTime}
