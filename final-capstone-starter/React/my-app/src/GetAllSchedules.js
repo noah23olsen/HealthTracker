@@ -1,10 +1,8 @@
 import React, { useEffect, useState} from 'react';
 import api from './api';
 
-
 function GetAllSchedules() {
     const [data,setData] = useState([]);
-
 
     useEffect(() =>{
         api.getSchedule()
