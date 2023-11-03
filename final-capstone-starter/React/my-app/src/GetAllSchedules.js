@@ -1,30 +1,27 @@
-import React, { Component } from 'react';
+import React, { useEffect, useState} from 'react';
 import api from './api';
 
-class GetAllSchedules extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      data:[]
-    };
-  }
-  //after it's been added to DOM 
-   componentDidMount(){
-    api.getSchedule()
-      .then(response => {
-        this.setState({data : response.data})
+
+function GetAllSchedules() {
+    const [data,setData] = useState([]);
+
+
+    useEffect(() =>{
+        api.getSchedule()
+          .then(response => {
+            //notice we use setData and not data
+            setData(response.data)
+          })
+          .catch(error => {
+            console.error("Error fetching data:", error);
+          });
       })
-      .catch(error => {
-        console.error("Error fetching data:", error);
-      });
-  }
-  render() {
     return (
-      <div>
+        <div>
         <h2 >Get All Schedules</h2>
           <ul>
           {/* .map creates a new array by applying a function to it(vs a foreach uses the original array) */}
-          {this.state.data.map((item,index)=>(
+          {data.map((item,index)=>(
             <li key={index}>
               ID: {item.id} - 
               Sleep Time: {item.sleep_time} - 
@@ -33,8 +30,7 @@ class GetAllSchedules extends Component {
           ))}
         </ul>
       </div>
-    );
-  }
+    )
 }
 
 export default GetAllSchedules;

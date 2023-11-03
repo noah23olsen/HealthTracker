@@ -11,11 +11,12 @@ class AddSchedule extends Component {
       wakeTime: '', // You can initialize with the desired default time
     };
   }
+  //method
 handleAddSchedule = (scheduleData) => {
   
   const formattedSchedule = {
     ...scheduleData, //make a copy of schedule data that we can manipulate further
-    //basically the DatePicker library formats time differently than my backend, so we need to format it
+    //basically the DatePicker library formats time differently than my backend, so we need to reformat it
     sleep_time: scheduleData.sleep_time.toISOString().slice(0,19).replace('T',' '),
     wake_time: scheduleData.wake_time.toISOString().slice(0, 19).replace('T', ' '),
   }
@@ -45,7 +46,7 @@ handleAddSchedule = (scheduleData) => {
          <h2>Add Schedule</h2>
       <form onSubmit={this.handleSubmit}>
         <div>
-          <label>Sleep Time:</label>
+          <label>Sleep Time:</label>  
           {/* //for future reference, delete later//} */}
           {/* <input
             type="text"
