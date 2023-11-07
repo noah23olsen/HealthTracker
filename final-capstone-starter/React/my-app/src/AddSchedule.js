@@ -43,7 +43,7 @@ function AddSchedule() {
           <label>Sleep Time:</label>
           <DatePicker
             selected={sleepTime}
-            onChange={(date) => setSleepTime(date.target.value)}
+            onChange={(date) => setSleepTime(date)}
             showTimeSelect
             timeIntervals={15}
             dateFormat="yyyy-MM-dd HH:mm:ss"
@@ -53,7 +53,7 @@ function AddSchedule() {
           <label>Wake Time:</label>
           <DatePicker
             selected={wakeTime}
-            onChange={(date) => setWakeTime(date.target.value)}
+            onChange={(date) => setWakeTime(date)}
             showTimeSelect
             timeIntervals={15}
             dateFormat="yyyy-MM-dd HH:mm:ss"
