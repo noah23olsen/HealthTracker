@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import api from './api';
+import api from '../services/api';
 
 function GetScheduleById() {
   const [id, setId] = useState('');

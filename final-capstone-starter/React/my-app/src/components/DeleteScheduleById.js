@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import api from './api';
+import api from '../services/api';
 
 function DeleteScheduleById() {
-      const [id,setId] = useState[''];
+      const [id,setId] = useState('');
 
  const handleDelete = (id,e) => {
     e.preventDefault();
@@ -19,7 +19,7 @@ function DeleteScheduleById() {
     return (
       <div>
         <h2>Delete Schedule By Id</h2>
-        <form onSubmit={(e) => handleDelete(id,e )}>
+        <form onSubmit={(e) => handleDelete(id,e)}>
             <label>DELETE ID</label>
              <input
               type="text"
